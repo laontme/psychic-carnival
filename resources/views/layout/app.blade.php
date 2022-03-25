@@ -13,51 +13,46 @@
 <div class="wrapper">
     @section('header')
         <div class="container">
-            <header class="d-flex justify-content-between py-3">
-                <ul class="nav gap-3">
+            <header class="d-flex justify-content-center py-3">
+                <ul class="nav nav-pills">
                     <li class="nav-item">
                         <a @class([
-                                'btn',
-                                'btn-outline-primary',
+                                'nav-link',
                                 'active' => request()->routeIs('home'),
                             ]) href="{{ route('home') }}">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="btn btn-outline-primary">Posts</a>
+                        <a href="#" class="nav-link">Posts</a>
                     </li>
                     @guest
                         <li class="nav-item">
                             <a @class([
-                                    'btn',
-                                    'btn-outline-primary',
+                                    'nav-link',
                                     'active' => request()->routeIs('user.login.form'),
                                 ]) href="{{ route('user.login.form') }}" class="nav-link">Login</a>
                         </li>
                         <li class="nav-item">
                             <a @class([
-                                    'btn',
-                                    'btn-outline-primary',
+                                    'nav-link',
                                     'active' => request()->routeIs('user.register.form'),
                                 ]) href="{{ route('user.register.form') }}" class="nav-link">Register</a>
                         </li>
-                    @endguest
-                </ul>
-                <ul class="nav nav-pills gap-3">
-                    @auth
+                    @else
                         <li class="nav-item">
                             <a @class([
-                                    'btn',
-                                    'btn-outline-primary',
+                                    'nav-link',
                                     'active' => request()->routeIs('user.profile'),
-                                ]) href="{{ route('user.profile') }}" class="nav-link">{{ auth()->user()->email }}</a>
+                                ]) href="{{ route('user.profile') }}" class="nav-link">Profile</a>
                         </li>
-                    @endauth
+                    @endguest
                 </ul>
             </header>
         </div>
     @show
     @yield('main')
 </div>
+
+<script src="{{ asset('js/app.js') }}"></script>
 </body>
 
 </html>
