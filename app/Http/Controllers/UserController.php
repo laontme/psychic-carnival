@@ -46,7 +46,11 @@ class UserController extends Controller
 
     public function profile(Request $request)
     {
-        $tokens = auth()->user()->tokens()->get();
-        return view('user.profile', compact('tokens'));
+        $user = auth()->user();
+
+        $authored = $user->posts()->withCount('likes')->get();
+        $bookmarks = $user->bookmarks()->withCount('likes')->get();
+        $tokens = $user->tokens()->get();
+        return view('user.profile', compact('tokens', 'authored', 'bookmarks'));
     }
 }
