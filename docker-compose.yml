@@ -10,9 +10,9 @@ services:
             -  db:/var/lib/mysql
         environment:
             MARIADB_RANDOM_ROOT_PASSWORD: "yes"
-            MARIADB_DATABASE: psychical-carnival
-            MARIADB_USER: psychical-carnival
-            MARIADB_PASSWORD: psychical-carnival
+            MARIADB_DATABASE: psychic-carnival
+            MARIADB_USER: psychic-carnival
+            MARIADB_PASSWORD: psychic-carnival
 
     pma:
         image: phpmyadmin
@@ -21,8 +21,8 @@ services:
             - "3000:80"
         environment:
             PMA_ARBITRARY: true
-            PMA_USER: psychical-carnival
-            PMA_PASSWORD: psychical-carnival
+            PMA_USER: psychic-carnival
+            PMA_PASSWORD: psychic-carnival
             PMA_HOST: db
 
 volumes:
