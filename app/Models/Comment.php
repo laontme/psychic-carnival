@@ -13,12 +13,12 @@ class Comment extends Model
     // post
     // role
 
-    public function author ()
+    public function author()
     {
         return $this->belongsTo(User::class, 'author_id');
     }
 
-    public function post ()
+    public function post()
     {
         return $this->belongsTo(Post::class);
     }

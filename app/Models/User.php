@@ -50,22 +50,22 @@ class User extends Authenticatable
     // bookmark
     // role
 
-    public function posts ()
+    public function posts()
     {
         return $this->hasMany(Post::class, 'author_id');
     }
 
-    public function comments ()
+    public function comments()
     {
         return $this->hasMany(Comment::class, 'author_id');
     }
 
-    public function likes ()
+    public function likes()
     {
         return $this->belongsToMany(Post::class, 'likes');
     }
 
-    public function bookmarks ()
+    public function bookmarks()
     {
         return $this->belongsToMany(Post::class, 'bookmarks');
     }

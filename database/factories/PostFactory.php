@@ -20,7 +20,6 @@ class PostFactory extends Factory
         return [
             'title' => Str::ucfirst($this->faker->words(3, true)),
             'content' => $this->faker->text(),
-//            'author_id' => null
         ];
     }
 }

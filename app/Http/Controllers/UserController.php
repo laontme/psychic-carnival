@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function login (UserLoginRequest $request)
+    public function login(UserLoginRequest $request)
     {
         $validated = $request->validated();
 
@@ -21,7 +21,7 @@ class UserController extends Controller
         return redirect(route('user.login'));
     }
 
-    public function register (UserRegisterRequest $request)
+    public function register(UserRegisterRequest $request)
     {
         $validated = $request->validated();
 
@@ -34,7 +34,7 @@ class UserController extends Controller
         return redirect()->intended(route('user.profile'));
     }
 
-    public function logout ()
+    public function logout()
     {
         Auth::logout();
         session()->invalidate();

@@ -8,7 +8,8 @@
             <div class="mb-3">
                 <label class="form-label w-100">
                     Full name:
-                    <input class="@error('name') is-invalid @enderror form-control" type="text" name="name" value="{{ old('name') }}">
+                    <input class="@error('name') is-invalid @enderror form-control" type="text" name="name"
+                           value="{{ old('name') }}">
                     @error('name')
                     <div class="invalid-feedback">
                         {{ $message }}
@@ -19,7 +20,8 @@
             <div class="mb-3">
                 <label class="form-label w-100">
                     Email:
-                    <input class="@error('email') is-invalid @enderror form-control" type="email" name="email" value="{{ old('email') }}">
+                    <input class="@error('email') is-invalid @enderror form-control" type="email" name="email"
+                           value="{{ old('email') }}">
                     @error('email')
                     <div class="invalid-feedback">
                         {{ $message }}

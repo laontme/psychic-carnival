@@ -18,8 +18,6 @@ class CommentFactory extends Factory
     {
         return [
             'content' => $this->faker->text(50),
-//            'post_id' => null,
-//            'author_id' => null
         ];
     }
 }
