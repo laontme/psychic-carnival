@@ -7,6 +7,7 @@ use App\Http\Requests\UserRegisterRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -23,11 +24,11 @@ class UserController extends Controller
 
     public function register(UserRegisterRequest $request)
     {
-        $validated = $request->validated();
+        $validated = $request->safe();
+        $validated->password = Hash::make($validated->password);
 
-        $user = new User($validated);
+        $user = new User($validated->all());
         $user->save();
-        $user->fresh();
 
         Auth::login($user, $request->boolean('remember'));
 
