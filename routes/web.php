@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TokenController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,7 +29,16 @@ Route::name('user.')
 
         Route::middleware('auth')
             ->group(function () {
-                Route::view('/profile', 'user.profile')->name('profile');
+                Route::get('/profile', 'profile')->name('profile');
                 Route::get('/logout', 'logout')->name('logout');
             });
+    });
+
+Route::name('token.')
+    ->prefix('/token')
+    ->controller(TokenController::class)
+    ->middleware('auth')
+    ->group(function () {
+        Route::post('/issue', 'issue')->name('issue');
+        Route::delete('/revoke', 'revoke')->name('revoke');
     });
